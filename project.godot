@@ -11,7 +11,16 @@ config_version=4
 [application]
 
 config/name="VirtualRealityModeling"
+run/main_scene="res://MainScene.tscn"
 config/icon="res://icon.png"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/godot-openxr/plugin.cfg" )
+
+[gdnative]
+
+singletons=[ "res://addons/godot-openxr/config/godot_openxr.gdnlib" ]
 
 [physics]
 
