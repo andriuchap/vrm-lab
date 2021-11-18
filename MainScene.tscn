@@ -35,7 +35,8 @@ transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0077
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.713123, -0.0032728, 1.56111 )
 
 [node name="RigidBody" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0291339, 3.0246, -0.0854757 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.328089, 1.78676, 1.56598 )
+mode = 3
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody"]
 shape = SubResource( 1 )

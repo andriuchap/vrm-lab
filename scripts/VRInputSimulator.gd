@@ -71,6 +71,10 @@ func toggle_control_state(scancode):
 		teleport_left()
 	elif scancode == KEY_Y:
 		teleport_right()
+	elif scancode == KEY_U:
+		grab_left_hand()
+	elif scancode == KEY_I:
+		grab_right_hand()
 	else:
 		move = (!move and scancode == KEY_M)
 		move_depth = (!move_depth and scancode == KEY_N)
@@ -146,3 +150,16 @@ func teleport_right():
 		right_hand.execute_teleport()
 	else:
 		teleporter.activate_right_teleporter()
+
+func grab_left_hand():
+	if left_hand.is_grabbing():
+		left_hand.get_hand_overlap().attempt_release()
+	else:
+		left_hand.get_hand_overlap().attempt_grab()
+	
+	
+func grab_right_hand():
+	if right_hand.is_grabbing():
+		right_hand.get_hand_overlap().attempt_release()
+	else:
+		right_hand.get_hand_overlap().attempt_grab()

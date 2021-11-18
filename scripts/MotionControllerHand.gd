@@ -41,3 +41,6 @@ func execute_teleport():
 	if $TeleportationArc.is_teleporting:
 		get_parent().teleport_to($TeleportationArc.teleport_location)
 	$TeleportationArc.stop_teleporting()
+
+func get_hand_overlap():
+	return $HandOverlap
