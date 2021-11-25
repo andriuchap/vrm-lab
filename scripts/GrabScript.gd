@@ -3,6 +3,8 @@ extends Area
 var grabbable_objects : Array
 var grabbed_object : RigidBody
 
+var original_parent = null
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -19,16 +21,21 @@ func attempt_grab():
 		if dist < min_dist:
 			min_dist = dist
 			potential_obj = obj
+	
+	original_parent = potential_obj.get_parent()
 	add_child(potential_obj)
 	grabbed_object = potential_obj
-	grabbed_object.mode = RigidBody.MODE_KINEMATIC
+	grabbed_object.mode = RigidBody.MODE_RIGID
+	grabbed_object.grab(self)
 
 func attempt_release():
 	if grabbed_object == null:
 		return
 	
-	remove_child(grabbed_object)
-	grabbed_object.mode = RigidBody.MODE_RIGID
+	
+	original_parent.add_child(grabbed_object)
+	grabbed_object.release()
+	#grabbed_object.mode = RigidBody.MODE_RIGID
 	grabbed_object = null
 
 func is_grabbing():

@@ -152,14 +152,14 @@ func teleport_right():
 		teleporter.activate_right_teleporter()
 
 func grab_left_hand():
-	if left_hand.is_grabbing():
+	if left_hand.get_hand_overlap().is_grabbing():
 		left_hand.get_hand_overlap().attempt_release()
 	else:
 		left_hand.get_hand_overlap().attempt_grab()
 	
 	
 func grab_right_hand():
-	if right_hand.is_grabbing():
+	if right_hand.get_hand_overlap().is_grabbing():
 		right_hand.get_hand_overlap().attempt_release()
 	else:
 		right_hand.get_hand_overlap().attempt_grab()
