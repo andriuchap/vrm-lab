@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://addons/godot-openxr/scenes/first_person_controller_vr.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Hand.tscn" type="PackedScene" id=2]
 [ext_resource path="res://addons/godot-openxr/config/OpenXRConfig.gdns" type="Script" id=3]
 [ext_resource path="res://scripts/VRTeleporter.gd" type="Script" id=4]
 [ext_resource path="res://scripts/VRInputSimulator.gd" type="Script" id=5]
+[ext_resource path="res://scripts/VRInputHandler.gd" type="Script" id=6]
 
 [node name="FPSController" type="ARVROrigin"]
 script = ExtResource( 1 )
@@ -32,7 +33,9 @@ script = ExtResource( 4 )
 
 [node name="VRInputSimulator" type="Node" parent="."]
 script = ExtResource( 5 )
-enabled = true
 camera_path = NodePath("../ARVRCamera")
 left_hand_path = NodePath("../LeftHand")
 right_hand_path = NodePath("../RightHand")
+
+[node name="VRInputHandler" type="Node" parent="."]
+script = ExtResource( 6 )
